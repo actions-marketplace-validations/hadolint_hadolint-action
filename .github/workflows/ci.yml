@@ -20,7 +20,7 @@ jobs:
     runs-on: ubuntu-24.04
     container: pipelinecomponents/hadolint:0.27.2
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
 
       - name: Run hadolint
         run: hadolint Dockerfile
@@ -29,7 +29,7 @@ jobs:
     name: ShellCheck
     runs-on: ubuntu-24.04
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
 
       - name: Run ShellCheck
         uses: reviewdog/action-shellcheck@v1.31.0
@@ -44,7 +44,7 @@ jobs:
       - lint
       - shellcheck
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
 
       - name: Build Docker image
         run: docker build -t $TEST_IMAGE_NAME .
@@ -66,7 +66,7 @@ jobs:
           - ubuntu-24.04-arm
 
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
 
       - name: Run integration test 1
         uses: ./
@@ -137,7 +137,7 @@ jobs:
     needs:
       - integration-tests
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
 
       - uses: cycjimmy/semantic-release-action@v5
         with:
